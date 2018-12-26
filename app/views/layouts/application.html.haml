@@ -3,31 +3,10 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title= full_title(yield(:title))
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    /[if lt IE 9]
-      %script{ src: "//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js" }
+    = render 'layouts/rails_default'
+    = render 'layouts/shim'
   %body
-    %header
-      %nav.navbar.navbar-expand.navbar-dark.bg-dark
-        .container
-          = link_to "sample app", '#', id: "logo", class: 'navbar-brand'
-          %button.navbar-toggler{"data-target" => "#header_navbar", "data-toggle" => "collapse", type: "button"}
-            %span.navbar-toggler-icon
-          #header_navbar.navbar-collapse.collapse.justify-content-stretch
-            -# %ul.navbar-nav
-            -#   %li.nav-item.active
-            -#     %a.nav-link{href: "#"}
-            -#       Link
-            -#       %span.sr-only Home
-            -#   %li.nav-item
-            -#     %a.nav-link{href: "#"} Link
-            %ul.navbar-nav.ml-auto
-              %li.nav-item= link_to "Home", '#', class: 'nav-link'
-              %li.nav-item= link_to "Help", '#', class: 'nav-link'
-              %li.nav-item= link_to "Log in", '#', class: 'nav-link'
+    = render 'layouts/header'
     .container
       %main{ role: 'main' }
         = yield
