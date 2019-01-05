@@ -1,3 +1,25 @@
 - provide(:title, 'Sign up')
 %h1 Sign up
-%p This will be a signup page for new users.
+
+- if @user.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      The form contains #{pluralize(@user.errors.count, "error")}.
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+
+= form_for(@user, url: signup_path, html: {class: 'form-signin'}) do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+  .form-group
+    = f.label :password_confirmation, "Confirmation"
+    = f.password_field :password_confirmation, class: 'form-control'
+  = f.submit "Create my account", class: "btn btn-primary"
