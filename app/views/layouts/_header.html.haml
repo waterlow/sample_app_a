@@ -8,4 +8,13 @@
         %ul.navbar-nav.ml-auto
           %li.nav-item= link_to "Home", root_path, class: 'nav-link'
           %li.nav-item= link_to "Help", help_path, class: 'nav-link'
-          %li.nav-item= link_to "Log in", '#', class: 'nav-link'
+          - if logged_in?
+            %li.nav-item.dropdown
+              %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Account
+              .dropdown-menu{"aria-labelledby" => "dropdown01"}
+                = link_to "Profile", current_user, class: 'dropdown-item'
+                = link_to "Settings", "#", class: 'dropdown-item'
+                .dropdown-divider
+                = link_to "Log out", logout_path, method: :delete, class: 'dropdown-item'
+          - else
+            %li.nav-item= link_to "Log in", login_path, class: 'nav-link'
