@@ -18,15 +18,19 @@ gem "sprockets-rails", github: "rails/sprockets-rails", require: "sprockets/rail
 gem "sprockets", "4.0.0.beta8"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "will_paginate-bootstrap4"
+gem "will_paginate"
 
 group :development, :test do
   gem "pry-rails"
   gem "pry-byebug"
+  gem "faker"
 end
 
 group :development do
   gem "erb2haml"
   gem "listen", ">= 3.0.5", "< 3.2"
+  gem "seed-fu", "~> 2.3"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "spring"
   gem "standard"
