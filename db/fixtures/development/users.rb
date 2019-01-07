@@ -1,3 +1,4 @@
+password = "password"
 User.seed(
   id: 1,
   name:  "Example User",
