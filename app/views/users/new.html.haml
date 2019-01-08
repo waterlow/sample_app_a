@@ -1,12 +1,6 @@
 - provide(:title, "Sign up")
 %h1 Sign up
 
-- if @user.errors.any?
-  #error-explanation
-    .alert.alert-danger
-      The form contains #{pluralize(@user.errors.count, "error")}.
-    %ul
-      - @user.errors.full_messages.each do |msg|
-        %li= msg
+= render "shared/error_messages", object: @user
 .form-signin
   = render("form", user: @user, button_text: "Create my account")

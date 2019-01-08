@@ -20,3 +20,18 @@ User.seed(
     salt: SALT,
   )
 end
+
+users = User.order(:created_at).take(6)
+
+micropost_id = 1
+50.times do |n|
+  users.each do |user|
+    Micropost.seed(
+      id: micropost_id,
+      user_id: user.id,
+      content: Faker::Lorem.sentence(5),
+      created_at: 30.days.ago + micropost_id.hours
+    )
+    micropost_id += 1
+  end
+end
