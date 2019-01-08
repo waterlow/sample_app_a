@@ -2,14 +2,14 @@
 %h1 Update your profile
 
 - if @user.errors.any?
-  #error_explanation
+  #error-explanation
     .alert.alert-danger
       The form contains #{pluralize(@user.errors.count, "error")}.
     %ul
       - @user.errors.full_messages.each do |msg|
         %li= msg
 .form-signin
-  = render 'form', user: @user, button_text: 'Save changes'
+  = render("form", user: @user, button_text: "Save changes")
   .gravatar_edit
     = gravatar_for @user
-    %a{href: "http://gravatar.com/emails", target: "_blank"} change
+    %a{ href: "http://gravatar.com/emails", target: "_blank" } change
