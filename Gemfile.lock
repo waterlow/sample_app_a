@@ -314,7 +314,6 @@ PLATFORMS
 
 DEPENDENCIES
   babel-transpiler
-  bcrypt
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.3)
   capybara (>= 2.15)
