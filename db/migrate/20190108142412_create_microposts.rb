@@ -8,5 +8,6 @@ class CreateMicroposts < ActiveRecord::Migration[5.2]
 
       t.index [:user_id, :created_at]
     end
+    remove_index :microposts, :user_id
   end
 end

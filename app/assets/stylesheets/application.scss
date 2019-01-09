@@ -1,19 +1,11 @@
 @import "bootstrap";
 
-$gray-medium-light: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
-
 body {
   padding-bottom: 20px;
 }
 
 .navbar {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 textarea {
@@ -45,8 +37,8 @@ p {
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
-	font-weight: bold;
-	&:hover {
+  font-weight: bold;
+  &:hover {
     text-decoration: none;
   }
 }
@@ -82,34 +74,34 @@ footer {
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* sidebar */
 
-aside {
-  section.user_info {
+aside section {
+  &.user_info {
     margin-top: 20px;
   }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
+  padding: 10px 0;
+  margin-top: 20px;
+  &:first-child {
+    border: 0;
+    padding-top: 0;
+  }
+  span {
+    display: block;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+  h1 {
+    font-size: 1.4em;
+    text-align: left;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 0px;
   }
 }
 
@@ -136,11 +128,9 @@ aside {
   }
 }
 
-.field_with_errors {
-  .form-control {
-    @extend .is-invalid;
-    color: #dc3545;
-  }
+.field_with_errors .form-control {
+  @extend .is-invalid;
+  color: #dc3545;
 }
 
 .gravatar_edit {
@@ -149,7 +139,44 @@ aside {
   margin: auto;
 }
 
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid #eee;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
 .users {
+  &.follow {
+    padding: 0;
+  }
   list-style: none;
   margin: 0;
   li {
@@ -192,11 +219,9 @@ aside {
   }
 }
 
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
+aside textarea {
+  height: 100px;
+  margin-bottom: 5px;
 }
 
 span.picture {

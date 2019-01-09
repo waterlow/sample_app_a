@@ -2,9 +2,11 @@
   .row
     %aside.col-md-4
       %section.user_info
-        = render 'shared/user_info'
+        = render "shared/user_info"
+      %section.stats
+        = render "shared/stats", user: current_user
       %section.micropost_form
-        = render 'shared/micropost_form', micropost: @micropost
+        = render "shared/micropost_form", micropost: @micropost
     .col-md-8
       %h3 Micropost Feed
       - if @feed_items.any?
@@ -12,4 +14,4 @@
           = render @feed_items
         = will_paginate @feed_items
 - else
-  = render 'jumbotron'
+  = render "jumbotron"

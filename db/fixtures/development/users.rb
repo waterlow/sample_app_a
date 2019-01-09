@@ -35,3 +35,15 @@ micropost_id = 1
     micropost_id += 1
   end
 end
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+
+following.each.with_index(1) do |followed, id|
+  Relationship.seed(id: id, follower: user, followed: followed)
+end
+followers.each.with_index(following.size + 1) do |follower, id|
+  Relationship.seed(id: id, follower: follower, followed: user)
+end

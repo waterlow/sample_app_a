@@ -6,8 +6,8 @@ class Micropost < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   validates :content, presence: true, length: {maximum: 140}
-  validate :picture_size
-  validate :picture_content_type
+  validate :picture_size, if: -> {picture.attached?}
+  validate :picture_content_type, if: -> {picture.attached?}
 
   has_one_attached :picture
 
