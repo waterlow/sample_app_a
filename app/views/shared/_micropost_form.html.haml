@@ -3,3 +3,5 @@
   .form-group
     = f.text_area :content, placeholder: "Compose new micropost...", class: "form-control", rows: 5
   = f.submit "Post", class: "btn btn-primary"
+  %span.picture
+    = f.file_field :picture, accept: Micropost::CONTENT_TYPE_WHITELIST.join(",")
