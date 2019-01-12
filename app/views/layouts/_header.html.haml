@@ -8,18 +8,17 @@
         %span.navbar-toggler-icon
       .navbar-collapse.collapse.justify-content-stretch#header-navbar
         %ul.navbar-nav.ml-auto
-          %li.nav-item= link_to("Home", root_path, class: "nav-link")
-          %li.nav-item= link_to("Help", help_path, class: "nav-link")
           - if logged_in?
             %li.nav-item.dropdown
-              %a.nav-link.dropdown-toggle#d01{ "aria-expanded" => "false",
+              %a.nav-link#d01{ "aria-expanded" => "false",
                                                "aria-haspopup" => "true",
                                                "data-toggle" => "dropdown",
-                                               href: "#" } Account
+                                               href: "#" }= gravatar_for(current_user, size: 50)
               .dropdown-menu{ "aria-labelledby" => "d01" }
                 = link_to("Profile", current_user, class: "dropdown-item")
                 = link_to("Settings", "#", class: "dropdown-item")
                 .dropdown-divider
+                = link_to("Help", help_path, class: "dropdown-item")
                 = link_to("Log out",
                           logout_path,
                           method: :delete,
