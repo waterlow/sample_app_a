@@ -49,3 +49,7 @@ group :test do
   gem "rails-controller-testing"
   gem "selenium-webdriver"
 end
+
+group :production do
+  gem "aws-sdk-s3", require: false
+end
